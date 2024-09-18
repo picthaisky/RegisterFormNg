@@ -1,0 +1,35 @@
+<div class="flex justify-center items-center min-h-screen">
+  <div class="bg-gray-100 p-8 rounded-lg shadow-md w-full max-w-md">
+    <h1 class="text-2xl font-bold mb-4">Register</h1>
+    <p class="text-gray-500 mb-6">Create your account. It's free and only takes a minute.</p>
+    <form [formGroup] = "registerForm" (ngSubmit)="register()">
+      <div class="grid grid-cols-2 gap-2">
+        <div class="mb-4">
+          <label class="block text-gray-700"></label>
+          <input type="text" placeholder="First Name" formControlName="firstName" class="w-full px-3 py-2 border rounded-lg" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700"></label>
+          <input type="text" placeholder="Last Name" formControlName="lastName" class="w-full px-3 py-2 border rounded-lg" required>
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700"></label>
+        <input type="email" placeholder="Email" formControlName="email" class="w-full px-3 py-2 border rounded-lg" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700"></label>
+        <input type="password" placeholder="Password" formControlName="password" class="w-full px-3 py-2 border rounded-lg" required>
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700"></label>
+        <input type="password" placeholder="Confirm Password" formControlName="confirmPassword" class="w-full px-3 py-2 border rounded-lg" required>
+      </div>
+      <span class="text-red-600 mb-2"
+      *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('confirmPassword')?.dirty && registerForm.get('confirmPassword')?.touched">
+      Passwords do not match.
+    </span>
+      <button type="submit" class="w-full bg-green-700 text-white py-2 rounded-lg" [disabled]="registerForm.invalid">Register Now</button>
+    </form>
+  </div>
+</div>

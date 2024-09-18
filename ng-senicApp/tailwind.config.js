@@ -1,12 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
-  theme: {
-    extend: {},
-  },
-  plugins: [
-    require('tailwindcss'),
-    require('autoprefixer'),
+  content: [
+    "./src/**/*.{html,ts}"
   ],
+  theme: {
+    extend: {
+      fontFamily: {
+        kanit: ["Kanit", "sans-serif"],
+      },
+    },
+  },
+  plugins: [],
 }
 
